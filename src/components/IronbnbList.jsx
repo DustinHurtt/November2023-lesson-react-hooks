@@ -1,25 +1,12 @@
 // src/components/IronbnbList.jsx
 
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useContext } from "react";
+import { ApartmentContext } from "../context/apartments.context";
 
-const apiURL = "https://ironbnb-m3.herokuapp.com/apartments";
 
 function IronbnbList() {
-  const [fetching, setFetching] = useState(true);
-  const [apartments, setApartments] = useState([]);
 
-  useEffect(() => {
-    console.log("useEffect - Initial render (Mounting)");
-    axios.get(apiURL)
-        .then((response) => {
-            setApartments(response.data);
-            setFetching(false);
-        })
-        .catch((err) => {
-            console.log(err)
-        })
-  }, []);
+    const { fetching, apartments } = useContext(ApartmentContext)
 
   return (
     <div>

@@ -1,0 +1,1 @@
+export const API_URL = "https://ironbnb-m3.herokuapp.com/apartments"
